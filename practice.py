@@ -1,13 +1,13 @@
 from datetime  import datetime
 
 class Person:
-    def __init__(self, full_name,birth_date,phone,city,country,adress):
+    def __init__(self, full_name,birth_date,phone,city,country,address):
         self.full_name = full_name
         self.birth_date = birth_date
         self.phone = phone
         self.city = city
         self.country = country
-        self.adress = adress
+        self.address = address
 
     def show_info(self):
         print(f"NS{self.full_name}")
@@ -28,3 +28,7 @@ class Person:
     def update_phone(self,new_phone):
         self.new_phone = new_phone
         print(f"New phone number{self.phone}")
+
+    def update_address(self, new_address):
+        self.new_address = new_address
+        print(f"New address{self.address}")
