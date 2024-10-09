@@ -17,4 +17,10 @@ class Person:
         print(f"Country of residence{self.country}")
         print(f"Addres of residence{self.adress}")
 
-    def
+    def get_age(self):
+        birth_date =datetime.strftime(self.birth_date,"%d-%m-%y")
+        current_date = datetime.now()
+        age = current_date.year - birth_date
+        if current_date.month < birth_date.month or (current_date.month == birth_date.month and current_date.day < birth_date.day):
+            age -=1
+            return  age
