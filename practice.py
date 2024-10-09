@@ -32,3 +32,8 @@ class Person:
     def update_address(self, new_address):
         self.new_address = new_address
         print(f"New address{self.address}")
+
+    def update_country(self,new_country):
+        self.new_country = new_country
+        print(f"I emigrated to {self.country}")
+
