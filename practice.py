@@ -15,18 +15,18 @@ class Person:
         print(f"Phone number{self.phone}")
         print(f"City of residence{self.city}")
         print(f"Country of residence{self.country}")
-        print(f"Addres of residence{self.adress}")
+        print(f"Addres of residence{self.address}")
 
     def get_age(self):
-        birth_date =datetime.strftime(self.birth_date,"%d-%m-%y")
+        birth_date = datetime.strftime(self.birth_date ,"%d-%m-%y")
         current_date = datetime.now()
-        age = current_date.year - birth_date
+        age = current_date.year - birth_date.year
         if current_date.month < birth_date.month or (current_date.month == birth_date.month and current_date.day < birth_date.day):
-            age -=1
-            return  age
+            age -= 1
+            return age
 
     def update_phone(self,new_phone):
-        self.new_phone = new_phone
+        self.phone = new_phone
         print(f"New phone number{self.phone}")
 
     def update_address(self, new_address):
@@ -37,3 +37,10 @@ class Person:
         self.new_country = new_country
         print(f"I emigrated to {self.country}")
 
+
+person = Person("Kvitka Cisyk","04.01.1953","+15551234888","New York","USA","Brodway")
+person.show_info()
+person.update_phone()
+person.new_address()
+person.update_country()
+print(f"Age {get_age}")
