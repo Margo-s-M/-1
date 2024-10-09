@@ -12,3 +12,10 @@ class City:
         self.inhabitats = inhabitans
         self.postcode =postcode
         self.phone_code =phone_code
+    def city_info(self):
+        print(f"Name of the city{self.city_name}")
+        print(f"Name of the region{self.region}")
+        print(f"Country where the city is located {self.country} ")
+        print(f"How many inhabitats live there{self.inhabitats}")
+        print(f"Poste code of this city {self.postcode}")
+        print(f"Pthone code of this cite {self.phone_code}")
