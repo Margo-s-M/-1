@@ -24,3 +24,7 @@ class Person:
         if current_date.month < birth_date.month or (current_date.month == birth_date.month and current_date.day < birth_date.day):
             age -=1
             return  age
+
+    def update_phone(self,new_phone):
+        self.new_phone = new_phone
+        print(f"New phone number{self.phone}")
