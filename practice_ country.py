@@ -21,3 +21,15 @@ class Country :
         print(f"Phone code of the country {self.phone_code}")
         print(f"The capital of the country {self.capital}")
         print(f"Major cities of the country {self.name_of_cities}")
+
+    def update_population(self, new_population):
+        self.population = new_population
+
+    def update_capital(self, new_capital):
+        self.capital = new_capital
+
+    def update_name_of_cities(self,new_name_of_cities):
+        self.name_of_cities = new_name_of_cities
+
+country =Country("Україна","Східній Європі","38 млн.","+380","Київ","Львів,Одеса,Харків,Дніпро")
+country.info_show()
