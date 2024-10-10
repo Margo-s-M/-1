@@ -10,12 +10,12 @@ class Person:
         self.address = address
 
     def show_info(self):
-        print(f"NS{self.full_name}")
-        print(f"birthday{self.birth_date}")
-        print(f"Phone number{self.phone}")
-        print(f"City of residence{self.city}")
-        print(f"Country of residence{self.country}")
-        print(f"Addres of residence{self.address}")
+        print(f"NS {self.full_name}")
+        print(f"birthday {self.birth_date}")
+        print(f"Phone number {self.phone}")
+        print(f"City of residence {self.city}")
+        print(f"Country of residence {self.country}")
+        print(f"Addres of residence {self.address}")
 
     def get_age(self):
         birth_date = datetime.strftime(self.birth_date ,"%d-%m-%y")
@@ -27,11 +27,11 @@ class Person:
 
     def update_phone(self,new_phone):
         self.phone = new_phone
-        print(f"New phone number{self.phone}")
+        print(f"New phone number {self.phone}")
 
     def update_address(self, new_address):
         self.new_address = new_address
-        print(f"New address{self.address}")
+        print(f"New address {self.address}")
 
     def update_country(self,new_country):
         self.new_country = new_country
