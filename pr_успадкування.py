@@ -111,69 +111,69 @@
 # print(employee1.getHi("Hello"))
 # print()
 
-import random
-
-class Person():
-
-    _instance_count = 0
-    def __init__(self, firstN, lastN, age):
-        self.firstN = firstN
-        self.lastN = lastN
-        self._age = age  # захищена властивість
-        self.__personId = random.randint(1, 100)  # прихована властивість
-        Person._increase_instance_count()
-    def __getId(self):
-        return f"{self.__personId}\n"
-
-    def _getFullName(self):
-        return f"Full name: {self.firstN} {self.lastN}"#захищений метод
-
-    def getInfo(self):
-        return (f"PERSON FIRST NAME: {self.firstN}\n"
-                f"LAST NAME: {self.lastN}\n"
-                f"AGE: {self._age}\n"
-                f"PERSON ID: {self.__getId()}")
-    def getHi(self,msqText):
-        persInf = self.getInfo()
-        return  f"{persInf}\n {msqText}! I am {self.firstN}"
-    @staticmethod
-    def sayGreeting():
-        print("Nice to meet you!")
-    @staticmethod
-    def _increase_instance_count():
-        Person._instance_count += 1
-
-class Employee(Person):
-    def __init__(self, firstN, lastN, age, salary):
-        super().__init__(firstN, lastN, age)
-        self.salary = salary
-
-    def isRetiree(self):
-        print(self.getInfo())
-        if self._age > 70:
-            print(f"{self.firstN} is retiree")
-        else:
-            print(f"{self.firstN} is not retiree")
-
-    def changeAge(self, newAge):
-        self._age = newAge
-
-    def changeSalary(self,newSalary):
-        self.salary = newSalary
-        return self.salary
-    def getInfo(self):
-        return super().getInfo() + f"salary: {self.salary}"
-
-p1 = Person("Kity","Sweet",18)
-p2 = Person("Man","Super",42)
-print(f"The number of created objects in Person class {Person._instance_count}")
-
-empl1 = Employee("Lily", "Joe", 40, 5000)
-print(empl1.getInfo())
-
-empl1.changeSalary(4000)
-print(empl1.getInfo())
-
+# import random
+#
+# class Person():
+#
+#     _instance_count = 0
+#     def __init__(self, firstN, lastN, age):
+#         self.firstN = firstN
+#         self.lastN = lastN
+#         self._age = age  # захищена властивість
+#         self.__personId = random.randint(1, 100)  # прихована властивість
+#         Person._increase_instance_count()
+#     def __getId(self):
+#         return f"{self.__personId}\n"
+#
+#     def _getFullName(self):
+#         return f"Full name: {self.firstN} {self.lastN}"#захищений метод
+#
+#     def getInfo(self):
+#         return (f"PERSON FIRST NAME: {self.firstN}\n"
+#                 f"LAST NAME: {self.lastN}\n"
+#                 f"AGE: {self._age}\n"
+#                 f"PERSON ID: {self.__getId()}")
+#     def getHi(self,msqText):
+#         persInf = self.getInfo()
+#         return  f"{persInf}\n {msqText}! I am {self.firstN}"
+#     @staticmethod
+#     def sayGreeting():
+#         print("Nice to meet you!")
+#     @staticmethod
+#     def _increase_instance_count():
+#         Person._instance_count += 1
+#
+# class Employee(Person):
+#     def __init__(self, firstN, lastN, age, salary):
+#         super().__init__(firstN, lastN, age)
+#         self.salary = salary
+#
+#     def isRetiree(self):
+#         print(self.getInfo())
+#         if self._age > 70:
+#             print(f"{self.firstN} is retiree")
+#         else:
+#             print(f"{self.firstN} is not retiree")
+#
+#     def changeAge(self, newAge):
+#         self._age = newAge
+#
+#     def changeSalary(self,newSalary):
+#         self.salary = newSalary
+#         return self.salary
+#     def getInfo(self):
+#         return super().getInfo() + f"salary: {self.salary}"
+#
+# p1 = Person("Kity","Sweet",18)
+# p2 = Person("Man","Super",42)
+# print(f"The number of created objects in Person class {Person._instance_count}")
+#
+# empl1 = Employee("Lily", "Joe", 40, 5000)
+# print(empl1.getInfo())
+#
+# empl1.changeSalary(4000)
+# print(empl1.getInfo())
+#
 
 
 # import re
@@ -193,52 +193,86 @@ print(empl1.getInfo())
 #pr2 Клас для підрахунку площі геометричних фігур.
 
 
+# import math
+#
+# class Count_Geometry():
+#     _calc_count = 0
+#     @staticmethod
+#     def _increase_count():
+#         Count_Geometry._calc_count += 1
+#
+#     @staticmethod
+#     def triagle_base(base,height):
+#         Count_Geometry._increase_count()
+#         return 0.5*base*height
+#
+#     @staticmethod
+#     def triagle_area(a,b,c):
+#        s = (a+b+c) / 2
+#        Count_Geometry._increase_count()
+#        return math.sqrt(s*(s-a)*(s-b)*(s-c))
+#
+#     @staticmethod
+#
+#     def rectangle(length,width):
+#         Count_Geometry._increase_count()
+#         return length * width
+#
+#     @staticmethod
+#
+#     def square(side):
+#         Count_Geometry._increase_count()
+#         return side * side
+#
+#     @staticmethod
+#
+#     def rhombus(d1,d2):
+#         Count_Geometry._increase_count()
+#         return  0.5 *d1 *d2
+#
+#     @staticmethod
+#
+#     def get_calculation():
+#         return Count_Geometry._increase_count()
+#
+#
+# print(f"triagle area:{Count_Geometry.triagle_base(10,15)}")
+# print(f"triagle area:{Count_Geometry.triagle_area(2,5,7)}")
+# print(f"rectangle area: {Count_Geometry.rectangle(17,7)}  ")
+# print(f"square area: {Count_Geometry.square(8)} ")
+# print(f"rhombus area : {Count_Geometry.rhombus(12,16)}")
+# print(f"Colculation count : {Count_Geometry.get_calculation()}")
+
+
+#pr3 max,min,factorial,average of attributes with static method
+
 import math
 
-class Count_Geometry():
-    _calc_count = 0
+class MathMethods():
     @staticmethod
-    def _increase_count():
-        Count_Geometry._calc_count += 1
 
-    @staticmethod
-    def triagle_base(base,height):
-        Count_Geometry._increase_count()
-        return 0.5*base*height
-
-    @staticmethod
-    def triagle_area(a,b,c):
-       s = (a+b+c) / 2
-       Count_Geometry._increase_count()
-       return math.sqrt(s*(s-a)*(s-b)*(s-c))
+    def max_meth(a,b,c,d):
+        return max(a,b,c,d)
 
     @staticmethod
 
-    def rectangle(length,width):
-        Count_Geometry._increase_count()
-        return length * width
+    def min_meth(a,b,c,d):
+        return min(a,b,c,d)
 
     @staticmethod
 
-    def square(side):
-        Count_Geometry._increase_count()
-        return side * side
+    def averege_math(a,b,c,d):
+        return (a+b+c+d) / 4
+
 
     @staticmethod
 
-    def rhombus(d1,d2):
-        Count_Geometry._increase_count()
-        return  0.5 *d1 *d2
+    def factirial(n):
+        return math.factorial(n)
 
-    @staticmethod
+a,b,c,d = 10,15,20,25
 
-    def get_calculation():
-        return Count_Geometry._increase_count()
-
-
-print(f"triagle area:{Count_Geometry.triagle_base(10,15)}")
-print(f"triagle area:{Count_Geometry.triagle_area(2,5,7)}")
-print(f"rectangle area: {Count_Geometry.rectangle(17,7)}  ")
-print(f"square area: {Count_Geometry.square(8)} ")
-print(f"rhombus area : {Count_Geometry.rhombus(12,16)}")
-print(f"Colculation count : {Count_Geometry.get_calculation()}")
+print(f" maximum  of{a} ,{b},{c},{d} :{MathMethods.max_meth(a,b,c,d)}")
+print(f"minimum of {a},{b},{c},{d} : {MathMethods.min_meth(a,b,c,d)}")
+print(f"averege of numbers {a},{b},{c},{d} :{MathMethods.averege_math(a, b, c, d)}")
+print(f"factorial of number {MathMethods.factirial(a)}")
