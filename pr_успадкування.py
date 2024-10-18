@@ -24,7 +24,7 @@
 # car = Auto("BMW")
 # car.add_passengers(nick,kate)
 # car.print_passengers()
-import random
+#import random
 
 
 # class Class1:
@@ -190,4 +190,55 @@ print(empl1.getInfo())
 # userstr ="Extract 500, 1004.56,45,0,-46,23.1 FROM MY STRING"
 # print(myOperator.incrementer(userstr))
 
+#pr2 Клас для підрахунку площі геометричних фігур.
 
+
+import math
+
+class Count_Geometry():
+    _calc_count = 0
+    @staticmethod
+    def _increase_count():
+        Count_Geometry._calc_count += 1
+
+    @staticmethod
+    def triagle_base(base,height):
+        Count_Geometry._increase_count()
+        return 0.5*base*height
+
+    @staticmethod
+    def triagle_area(a,b,c):
+       s = (a+b+c) / 2
+       Count_Geometry._increase_count()
+       return math.sqrt(s*(s-a)*(s-b)*(s-c))
+
+    @staticmethod
+
+    def rectangle(length,width):
+        Count_Geometry._increase_count()
+        return length * width
+
+    @staticmethod
+
+    def square(side):
+        Count_Geometry._increase_count()
+        return side * side
+
+    @staticmethod
+
+    def rhombus(d1,d2):
+        Count_Geometry._increase_count()
+        return  0.5 *d1 *d2
+
+    @staticmethod
+
+    def get_calculation():
+        return Count_Geometry._increase_count()
+
+
+print(f"triagle area:{Count_Geometry.triagle_base(10,15)}")
+print(f"triagle area:{Count_Geometry.triagle_area(2,5,7)}")
+print(f"rectangle area: {Count_Geometry.rectangle(17,7)}  ")
+print(f"square area: {Count_Geometry.square(8)} ")
+print(f"rhombus area : {Count_Geometry.rhombus(12,16)}")
+print(f"Colculation count : {Count_Geometry.get_calculation()}")
