@@ -11,18 +11,24 @@ class Human:
     def speak(self):
         return f"{self.name} says: Hello!"
 class Sailor(Human):
-    def __init__(self, name, age, gender, rank, years_of_service):
+    def __init__(self, name, age, gender, rank,):
         super().__init__(name, age, gender)
         self.rank = rank
-        self.years_of_service = years_of_service
-
     def sail(self):
         return f"{self.name}, a {self.rank}, is sailing the seas!"
 
     def get_info(self):
         return (super().get_info() +
-                f", Rank: {self.rank}, Years of Service: {self.years_of_service}")
+                f", Rank: {self.rank}, Years of Service:")
 
+class Builder(Human):
+    def __init__(self,name, age, gender,experience):
+        super().__init__(name, age, gender)
+        self.experience = experience
+
+    def get_info(self):
+        return (super().get_info()+
+                f"experience : {self.experience}")
 class Pilot(Human):
     def __init__(self, name, age, gender, airline, flight_hours):
         super().__init__(name, age, gender)
@@ -39,7 +45,7 @@ class Pilot(Human):
 
 
 
-sailor = Sailor("Van Dam", 35, "Male", "Captain", 12)
+sailor = Sailor("Van Dam", 35, "Male", "Captain")
 print(sailor.get_info())
 print(sailor.speak())
 print(sailor.sail())
