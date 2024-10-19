@@ -58,3 +58,35 @@ frac3 = Fraction(5, 6)
 
 print(Fraction.get_instance_count())
 
+
+class UnitConverter:
+    _conversion_count = 0
+
+    @staticmethod
+    def meters_to_yards(meters):
+        UnitConverter._increase_count()
+        return meters * 1.09361
+
+    @staticmethod
+    def yards_to_meters(yards):
+        UnitConverter._increase_count()
+        return yards / 1.09361
+
+    @staticmethod
+    def _increase_count():
+        UnitConverter._conversion_count += 1
+
+    @staticmethod
+    def get_conversion_count():
+
+        return UnitConverter._conversion_count
+
+
+distance_in_yards = UnitConverter.meters_to_yards(100)
+distance_in_meters = UnitConverter.yards_to_meters(109.361)
+
+print(f"Відстань у ярдах: {distance_in_yards}")
+print(f"Відстань у метрах: {distance_in_meters}")
+print(f"Кількість підрахунків: {UnitConverter.get_conversion_count()}")
+
+
