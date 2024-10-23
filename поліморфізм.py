@@ -143,6 +143,70 @@ my_car = Car(num_wheels=4, wheel_type= "universal",wheels_radius= 22,horsepower=
 
 
 print(my_car.get_car_info())
+#pr3
+# Базовий клас Домашня тварина
+class Pet:
+    def __init__(self, name):
+        self.name = name
+
+    def sound(self):
+        raise NotImplementedError("Цей метод має бути перевизначений у похідному класі")
+
+    def show(self):
+        return f"My pet's name is {self.name}"
+
+    def type(self):
+        raise NotImplementedError("Цей метод має бути перевизначений у похідному класі")
+
+class Dog(Pet):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def sound(self):
+        return "sausage! sausage!"
+
+    def type(self):
+        return "Dog"
+
+class Cat(Pet):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def sound(self):
+        return "Mur! Glumur!"
+
+    def type(self):
+        return "Cat"
+
+class Parrot(Pet):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def sound(self):
+        return "Chirp! Chirp!"
+
+    def type(self):
+        return "Parrot"
+class Hamster(Pet):
+    def __init__(self, name):
+        super().__init__(name)
+
+    def sound(self):
+        return "zhrat! zhrat!"
+
+    def type(self):
+        return "Hamster"
+
+dog = Dog("Molly")
+cat = Cat("Monya")
+parrot = Parrot("Gary")
+hamster = Hamster("Milan")
+
+for pet in (dog, cat, parrot, hamster):
+    print(pet.show())
+    print(f"Type: {pet.type()}")
+    print(f"Sound: {pet.sound()}")
+    print("-" * 20)
 
 
 
