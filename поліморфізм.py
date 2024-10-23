@@ -100,51 +100,50 @@ print(circle_in_square.get_info())
 
 #pr 2 Class Car (wheel,engine,doors)
 
-# class Wheels:
-#     def __init__(self, wheels_count, wheel_radius):
-#         self.wheels_count = wheels_count
-#         self.wheel_radius = wheel_radius
-#
-#     def get_wheel_info(self):
-#         return f"Number of wheels: {self.num_wheels}, Wheel type: {self.wheel_type}"
-#
-# # Клас Двигун
-# class Engine:
-#     def __init__(self, horsepower, engine_type):
-#         self.horsepower = horsepower
-#         self.engine_type = engine_type
-#
-#     def get_engine_info(self):
-#         return f"Horsepower: {self.horsepower}, Engine type: {self.engine_type}"
-#
-# # Клас Двері
-# class Doors:
-#     def __init__(self, num_doors, door_type):
-#         self.num_doors = num_doors
-#         self.door_type = door_type
-#
-#     def get_door_info(self):
-#         return f"Number of doors: {self.num_doors}, Door type: {self.door_type}"
-#
-# # Клас Автомобіль (множинне успадкування)
-# class Car(Wheels, Engine, Doors):
-#     def __init__(self, num_wheels, wheel_type, horsepower, engine_type, num_doors, door_type, brand, model):
-#         Wheels.__init__(self, num_wheels, wheel_type)
-#         Engine.__init__(self, horsepower, engine_type)
-#         Doors.__init__(self, num_doors, door_type)
-#         self.brand = brand
-#         self.model = model
-#
-#     def get_car_info(self):
-#         return (f"Car brand: {self.brand}, Model: {self.model}\n"
-#                 f"{self.get_wheel_info()}\n"
-#                 f"{self.get_engine_info()}\n"
-#                 f"{self.get_door_info()}")
-#
-# # Створення об'єкта класу Автомобіль
-# my_car = Car(num_wheels=4, wheel_type="All-season", horsepower=300, engine_type="V6", num_doors=4, door_type="Automatic", brand="Tesla", model="Model S")
-#
-# # Виведення інформації про автомобіль
-# print(my_car.get_car_info())
+class Wheels:
+    def __init__(self,num_wheels,wheels_radius,wheels_type):
+        self.num_wheels = num_wheels
+        self.wheels_radius = wheels_radius
+        self.wheels_type = wheels_type
+
+    def get_wheel_info(self):
+        return f"Number of wheels: {self.num_wheels}, Wheel type: {self.wheels_type} ,Wheel radius {self.wheels_radius} "
+class Engine:
+    def __init__(self, horsepower, engine_type):
+        self.horsepower = horsepower
+        self.engine_type = engine_type
+
+    def get_engine_info(self):
+        return f"Horsepower: {self.horsepower}, Engine type: {self.engine_type}"
+class Doors:
+    def __init__(self, num_doors, door_type):
+        self.num_doors = num_doors
+        self.door_type = door_type
+
+    def get_door_info(self):
+        return f"Number of doors: {self.num_doors}, Door type: {self.door_type}"
+
+
+class Car(Wheels, Engine, Doors):#(множинне успадкування)
+    def __init__(self, num_wheels, wheel_type,wheels_radius, horsepower, engine_type, num_doors, door_type, brand, model):
+        Wheels.__init__(self, num_wheels, wheel_type,wheels_radius)
+        Engine.__init__(self, horsepower, engine_type)
+        Doors.__init__(self, num_doors, door_type)
+        self.brand = brand
+        self.model = model
+
+    def get_car_info(self):
+        return (f"Car brand: {self.brand}, Model: {self.model}\n"
+                f"{self.get_wheel_info()}\n"
+                f"{self.get_engine_info()}\n"
+                f"{self.get_door_info()}")
+
+# Створення об'єкта класу Автомобіль
+my_car = Car(num_wheels=4, wheel_type= "universal",wheels_radius= 22,horsepower= 3000 ,engine_type="hybrid",door_type="up",brand="Toyota", model="Rav4",num_doors=4)
+
+
+print(my_car.get_car_info())
+
+
 
 #Функтори
