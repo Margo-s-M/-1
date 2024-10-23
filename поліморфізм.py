@@ -209,5 +209,70 @@ for pet in (dog, cat, parrot, hamster):
     print("-" * 20)
 
 
+#pr4Створити базовий клас Employer ,Створіть від нього три похідні класи: President,Manager, Worker.
+# Перевизначте функцію Print() для виведення інформації.
+class Employer:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def Print(self):
+        return "This is Employer class"
+
+    def __str__(self):
+        return f"Employer: {self.name}, Age: {self.age}"
+
+    def __int__(self):
+        return self.age
+
+class President(
+    def __init__(self, name, age, company):
+        super().__init__(name, age)
+        self.company = company
+
+    def Print(self):
+        return f"President of {self.company}: {self.name}"
+
+    def __str__(self):
+        return f"President: {self.name}, Age: {self.age}, Company: {self.company}"
+class Manager(Employer):
+    def __init__(self, name, age, department):
+        super().__init__(name, age)
+        self.department = department
+
+    def Print(self):
+        return f"Manager of {self.department}: {self.name}"
+
+    def __str__(self):
+        return f"Manager: {self.name}, Age: {self.age}, Department: {self.department}"
+class Worker(Employer):
+    def __init__(self, name, age, job_title):
+        super().__init__(name, age)
+        self.job_title = job_title
+
+    def Print(self):
+        return f"Worker: {self.name}, Job Title: {self.job_title}"
+
+    def __str__(self):
+        return f"Worker: {self.name}, Age: {self.age}, Job Title: {self.job_title}"
+
+president = President("Joe B", 55, "TechCom")
+manager = Manager("lili B", 40, "Sales")
+worker = Worker("Tom B", 30, "Mechanic")
+
+
+print(president.Print())
+print(manager.Print())
+print(worker.Print())
+
+# Виклик магічного методу __str__() та __int__()
+print(str(president))
+print(int(president))
+
+print(str(manager))
+print(int(manager))
+
+print(str(worker))
+print(int(worker))
 
 #Функтори
