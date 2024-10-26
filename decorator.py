@@ -113,3 +113,20 @@ def get_primes(limit=1000):
 
 primes = get_primes()
 print(f"Прості числа від 0 до 1000: {primes}")
+@timer_decorator
+def get_primes_in_range(start=0, end=1000):
+    primes = []
+    for num in range(max(2, start), end + 1):
+        is_prime = True
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+    return primes
+
+primes = get_primes_in_range(100, 500)
+print(f"Прості числа від 100 до 500: {primes}")
+
+
