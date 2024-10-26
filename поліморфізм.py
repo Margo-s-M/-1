@@ -364,30 +364,79 @@ for figure in figures:
 
 
 
-
-#pr
-import datetime
+#dz3
 
 
-def star_decorator(func):
-    def wrapper():
-        print("***************")
-        func()
-        print("***************")
-    return wrapper
 
-def text_decorator(func):
-    def wrapper():
-        print("**Current time**")
-        func()
-        print("**Spent time with benefit!**")
-    return wrapper
+class Shape:
+    def __init__(self, shape_type):
+        self.shape_type = shape_type
 
-@star_decorator
-@text_decorator
-def show_current_time():
-    current_time = datetime.datetime.now().strftime("%H:%M ")
-    print(f"Поточний час: {current_time}")
+    def Show(self):
+        raise NotImplementedError("Метод має бути перевизначений у підкласі.")
+
+    def Saveinf(self):
+        pass
 
 
-show_current_time()
+
+class Square(Shape):
+    def __init__(self, x, y, side_length):
+        super().__init__("Square")
+        self.x = x
+        self.y = y
+        self.side_length = side_length
+
+    def Show(self):
+        return f"Square with top-left corner at ({self.x}, {self.y}) and side length {self.side_length}"
+
+
+
+class Rectangle(Shape):
+    def __init__(self, x, y, width, height):
+        super().__init__("Rectangle")
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+
+    def Show(self):
+        return f"Rectangle with top-left corner at ({self.x}, {self.y}), width {self.width}, height {self.height}"
+
+
+
+class Circle(Shape):
+    def __init__(self, x, y, radius):
+        super().__init__("Circle")
+        self.x = x
+        self.y = y
+        self.radius = radius
+
+    def Show(self):
+        return f"Circle with center at ({self.x}, {self.y}) and radius {self.radius}"
+
+
+
+class Ellipse(Shape):
+    def __init__(self, x, y, width, height):
+        super().__init__("Ellipse")
+        self.x = x
+        self.y = y
+        self.width = width
+        self.height = height
+
+    def Show(self):
+        return f"Ellipse with top-left corner at ({self.x}, {self.y}), width {self.width}, height {self.height}"
+
+
+
+shapes = [
+    Square(0, 0, 5),
+    Rectangle(10, 10, 4, 8),
+    Circle(5, 5, 3),
+    Ellipse(7, 7, 10, 6)
+]
+
+
+
+
