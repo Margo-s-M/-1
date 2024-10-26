@@ -129,4 +129,6 @@ def get_primes_in_range(start=0, end=1000):
 primes = get_primes_in_range(100, 500)
 print(f"Прості числа від 100 до 500: {primes}")
 
+#dz3фін звіти ???
+
 
