@@ -83,3 +83,33 @@ print("Піца Маргарита:", margherita())
 print("Піца Чотири сири:", four_cheeses())
 print("Піца Капричоза:", capricciosa())
 print("Піца Гавайська:", hawaiian())
+
+
+#dz1
+import time
+
+
+def timer_decorator(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"Час виконання: {end_time - start_time:.5f} секунд")
+        return result
+    return wrapper
+
+@timer_decorator
+def get_primes(limit=1000):
+    primes = []
+    for num in range(2, limit + 1):
+        is_prime = True
+        for i in range(2, int(num**0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+    return primes
+
+primes = get_primes()
+print(f"Прості числа від 0 до 1000: {primes}")
