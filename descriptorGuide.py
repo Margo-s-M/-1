@@ -211,6 +211,27 @@ car.time = 15
 print("Нова середня швидкість", car.averegeSpeed )
 
 
+
+
+#pr2Oder
+class Order:
+    def __init__(self, items):
+
+        if all(isinstance(item, tuple) and len(item) == 3 for item in items):#кортеж,перевірка чере цикл for по item
+            self._items = items
+        else:
+            raise ValueError("Items must be a list of tuples (item_name, quantity, price_per_unit)")
+
+    @property
+    def total_cost(self):
+        return sum(quantity * price_per_unit for _, quantity, price_per_unit in self._items)
+
+order = Order([
+    ("Milk",2,35),
+    ("Bread",1,25)
+])
+print("Total cost:", order.total_cost)
+
 #дескриптор — це значення атрибута, яке має один із методів у протоколі дескриптора.
 # Ці методи: __get__(), __set__() і __delete__().
 #Якщо будь-який із цих методів визначено для атрибута, він називається descriptor.
@@ -425,21 +446,21 @@ print("Нова середня швидкість", car.averegeSpeed )
 # obj3 = MyClass4()
 
 #pr1
-class CounterMeta(type):
-    def __new__(cls, name,bases,dct):
-        dct['_instance_count'] = 0
-        return super.__new__(cls, name,bases,dct)
-
-    def __call__(cls, *args, **kwargs):
-        instance = super.__call__(*args, **kwargs)
-        cls._instance_count += 1
-        return instance
-
-
-class firstClass(metaclass=CounterMeta):
-    pass
-
-class secondClass(metaclass=CounterMeta):
-    pass
-a = (firstClass)
+# class CounterMeta(type):
+#     def __new__(cls, name,bases,dct):
+#         dct['_instance_count'] = 0
+#         return super.__new__(cls, name,bases,dct)
+#
+#     def __call__(cls, *args, **kwargs):
+#         instance = super.__call__(*args, **kwargs)
+#         cls._instance_count += 1
+#         return instance
+#
+#
+# class firstClass(metaclass=CounterMeta):
+#     pass
+#
+# class secondClass(metaclass=CounterMeta):
+#     pass
+# a = (firstClass)
 
