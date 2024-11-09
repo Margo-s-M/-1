@@ -232,6 +232,68 @@ order = Order([
 ])
 print("Total cost:", order.total_cost)
 
+class Person:
+    def __init__(self,weight,height):
+        if weight > 0 and height >0 :
+            self._weight = weight
+            self._height = height
+        else:
+            raise ValueError("Weight and height must be posotive numbers")
+    @property
+    def weight(self):
+        return self._weight
+    @weight.setter
+    def weight(self,value):
+        if value > 0:
+            self._weight =value
+        else:
+            raise ValueError("Weight must be positive")
+
+    @property
+    def height(self):
+        return self._height
+
+    @height.setter
+    def height(self,value):
+        if value > 0:
+            self._height = value
+        else:
+            raise ValueError("Height must be positive")
+    @property
+    def bmi(self):
+        return self.weight / (self._height**2)
+
+person =Person(65,165)
+print("BMI",person.bmi)
+
+#pr Square
+class Square:
+    def __init__(self, side):
+        if side > 0:
+            self._side = side
+        else:
+            raise ValueError("Side length must be a positive number")
+
+    @property
+    def side(self):
+        return self._side
+
+    @side.setter
+    def side(self, value):
+        if value > 0:
+            self._side = value
+        else:
+            raise ValueError("Side length must be a positive number")
+
+    @property
+    def area(self):
+        return self._side ** 2
+
+square = Square(4)
+print("Area:", square.area)
+square.side = 5
+print("Updated Area:", square.area)
+
 #дескриптор — це значення атрибута, яке має один із методів у протоколі дескриптора.
 # Ці методи: __get__(), __set__() і __delete__().
 #Якщо будь-який із цих методів визначено для атрибута, він називається descriptor.
